@@ -1,0 +1,43 @@
+{
+  "name": "demo lambda",
+  "version": "1.0.0",
+  "description": "h",
+  "main": "app.js",
+  "repository": "",
+  "author": "jthanh8144",
+  "license": "",
+  "scripts": {
+    "unit": "jest",
+    "lint": "eslint '*.ts' --quiet --fix",
+    "test": "npm run compile && npm run unit",
+    "build": "rm -r dist && npx tsc -p ."
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "dotenv": "^16.0.3",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.8.0",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.25.3",
+    "sequelize-typescript": "^2.1.5"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.92",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jest": "^27.4.0",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/node": "^17.0.13",
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.0",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.5.5"
+  }
+}

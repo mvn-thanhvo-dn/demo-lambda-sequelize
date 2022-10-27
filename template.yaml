@@ -1,0 +1,109 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  demo lambda with SAM and typescript
+
+Globals:
+  Function:
+    Timeout: 300
+    Environment:
+      Variables:
+        DB_NAME: 
+        DB_HOST: 
+        DB_USER: 
+        DB_PASS: 
+        DB_PORT: 5432
+        ACCESS_TOKEN_SECRET: hanahaha333
+        ACCESS_TOKEN_LIFE: 5m
+
+Resources:
+  GetAllUsers:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: app
+      Handler: dist/src/app.getAllUsers
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      Events:
+        GetAllUsers:
+          Type: Api 
+          Properties:
+            Path: /users
+            Method: GET
+  RegisterUser:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: app
+      Handler: dist/src/app.registerUser
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      Events:
+        RegisterUser:
+          Type: Api 
+          Properties:
+            Path: /users
+            Method: POST
+  Login:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: app
+      Handler: dist/src/app.login
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      Events:
+        Login:
+          Type: Api 
+          Properties:
+            Path: /login
+            Method: POST
+  GetProfile:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: app
+      Handler: dist/src/app.getProfile
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      Events:
+        GetProfile:
+          Type: Api 
+          Properties:
+            Path: /profile
+            Method: GET
+  UpdateProfile:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: app
+      Handler: dist/src/app.updateProfile
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      Events:
+        UpdateProfile:
+          Type: Api 
+          Properties:
+            Path: /profile/{id}
+            Method: PUT
+  DeleteProfile:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: app
+      Handler: dist/src/app.deleteProfile
+      Runtime: nodejs16.x
+      Architectures:
+        - x86_64
+      Events:
+        DeleteProfile:
+          Type: Api 
+          Properties:
+            Path: /profile
+            Method: DELETE
+
+Outputs:
+  WebEndpoint:
+    Description: "REST API"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+

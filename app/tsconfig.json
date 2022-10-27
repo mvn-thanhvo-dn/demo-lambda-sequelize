@@ -1,0 +1,45 @@
+// {
+//   "compilerOptions": {
+//     "target": "es2020",
+//     "strict": true,
+//     "experimentalDecorators": true,
+//     "preserveConstEnums": true,
+//     "noEmit": true,
+//     "sourceMap": false,
+//     "module": "es2015",
+//     "moduleResolution": "node",
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "forceConsistentCasingInFileNames": true
+//   },
+// }
+{
+  "compilerOptions": {
+    "lib": ["es2020", "DOM"],
+    "module": "CommonJS",
+    "declaration": true,
+    "declarationMap": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false,
+    "target": "es2020",
+    "strict": true,
+    "sourceMap": false,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": false,
+    "preserveConstEnums": true,
+    // "noEmit": true,
+    "moduleResolution": "node"
+  },
+  "exclude": ["node_modules", "**/*.spec.ts", "tests", "dist"]
+}
